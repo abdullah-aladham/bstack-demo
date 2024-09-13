@@ -5,7 +5,7 @@
   <span>To review and Run Test cases in the Repo you need the following:</span>
   <ul>
     <li>Nodejs <code>v20.16.0</code> or newer being installed on your machine</li> 
-    <li>visual studio code being installed on your device,So that you can review the code</li>
+    <li>visual studio code being installed on your device,So that you can view and edit the code</li>
     <li>Cloning the repo by the following code <code>git clone https://github.com/abdullah-aladham/bstack-demo.git</code></li>
     
   <span>If you're interested in the repo then click on <code>Watch</code> to be notified ,and if you like it click on ⭐ to give it a star so you get similar repos</span>
