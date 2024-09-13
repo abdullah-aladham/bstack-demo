@@ -1,0 +1,21 @@
+{
+  "name": "browser-stack-demo",
+  "version": "1.0.0",
+  "description": "Automation Tesing browserstack site in cypress framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress",
+    "browserstack",
+    "ecommerce",
+    "automation",
+    "testing"
+  ],
+  "author": "Abdullah Aladham",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.14.2"
+  }
+}
