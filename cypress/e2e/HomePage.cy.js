@@ -1,17 +1,28 @@
 //const { beforeEach } = require("mocha")
 
-beforeEach(()=>{
-  cy.fixture('example').then((data)=>{
-    cy.visit(data.url)
-  
-  })
-})
+
 describe('template spec', () => {
   let randomindex=Math.floor(Math.random()*4+2).toString()
-  it('✅passes', () => {
-    cy.visit('https://bstackdemo.com/')
+  it.only('✅passes', () => {
+    cy.visit('/')
+    cy.url().should('equal','https://bstackdemo.com/')
+    
   })
+  it.only('Pass: product grid time is less or equal 1000ms',()=>{
+    
+    cy.intercept({
+      method:"GET",
+      path:"api/products",
+
+
+    }).as('products')
+    //cy.visit('/')
+    cy.wait('@products')
+  })
+    
+   
   it('✅passes:Navigating to offers page',()=>{
+    cy.visit('/')
   cy.get('a[id="offers"]').click()
   })
   it('✅passes:Navigating to Orders Page',()=>{
@@ -19,6 +30,7 @@ describe('template spec', () => {
 
   })
   it('✅passes:Navigating to Favourites page',()=>{
+
     cy.get('a[id="favourites"]').click()
   })
   it('✅passes: sorts the products based on apple choice',()=>{

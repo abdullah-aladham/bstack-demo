@@ -10,7 +10,13 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+ Cypress.Commands.add('login', (email, password) => { 
+    cy.session('Login session',()=>{
+        cy.get("div[id='username'] div[class=' css-1wa3eu0-placeholder']").select(email)
+        cy.get("#password").select(password)
+        cy.get("#login-btn").click()
+    })
+  })
 //
 //
 // -- This is a child command --
