@@ -8,16 +8,18 @@ describe('template spec', () => {
     cy.url().should('equal','https://bstackdemo.com/')
     
   })
-  it.only('Pass: product grid time is less or equal 1000ms',()=>{
-    
+  it.only('✅Pass: product grid time is less or equal 1000ms',()=>{
     cy.intercept({
       method:"GET",
-      path:"api/products",
+      path:"/api/products",
+      statusCode: 201,
 
 
-    }).as('products')
+    }).as('result')
+    cy.visit('/')
+    
     //cy.visit('/')
-    cy.wait('@products')
+    cy.wait('@result')
   })
     
    
@@ -41,15 +43,26 @@ describe('template spec', () => {
     cy.get(':nth-child('+randomindex+') > label > .checkmark').click()
 
   })
-  it('✅passes: sorts the products based on all choices',()=>{
-    cy.get('body > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > main:nth-child(2) > div:nth-child(1) > div:nth-child(2) > label:nth-child(1) > span:nth-child(2)').click()
+  it.only('✅passes: sorts the products based on all choices',()=>{
+  //  cy.visit('/')
+  cy.intercept({
+    method:"GET",
+    path:"/api/products",
+
+
+  }).as('results')
+  cy.visit('/')
+  cy.get('body > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > main:nth-child(2) > div:nth-child(1) > div:nth-child(2) > label:nth-child(1) > span:nth-child(2)').click()
     cy.get(':nth-child(3) > label > .checkmark').click()
     cy.get(':nth-child(4) > label > .checkmark').click()
     cy.get(':nth-child(5) > label > .checkmark').click()
-
     
+  cy.wait('@results')
 
-  })
+  
+
+})
+    
   it('✅passes:Navigates to sign in page',()=>{
     cy.get("#signin").click()
   })
