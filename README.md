@@ -1,6 +1,6 @@
 # Bstack-demo 
 <div>
-  <p>Welcome to <code>Bstack-demo</code> Ecommerce site testing repo Cypress <code>^13.14.2</code>
+  <p>Welcome to <code>Bstack-demo</code> Ecommerce site testing repo Cypress <code>^13.15.1</code>
   </p>
   <span>To review and Run Test cases in the Repo you need the following:</span>
   <ul>
